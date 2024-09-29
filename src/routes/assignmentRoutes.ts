@@ -1,8 +1,9 @@
 import { Router, Request, Response } from "express";
-import https from "https";
+import { AssignMentController } from "../controllers/assignMentController";
 
-const router: Router = Router();
+const assignMentController = new AssignMentController();
+const assignmentRoutes: Router = Router();
 
-router.post("/assignment", (req: Request, res: Response) => {
-  const { period, subject, term, proUrl } = req.body;
-});
+assignmentRoutes.post("/assignment", assignMentController.excuteAssignment);
+
+export default assignmentRoutes;
